@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
 using Un4seen.Bass;
-using Un4seen.Bass.Misc;
 
 namespace MIRecognizer
 {
@@ -13,18 +7,18 @@ namespace MIRecognizer
     {
         int sPointer = 0;
 
-        public bool Playing => sPointer != 0 ? Bass.BASS_ChannelIsActive(sPointer) == BASSActive.BASS_ACTIVE_PLAYING : false;
+        public bool Playing => (sPointer != 0) ? Bass.BASS_ChannelIsActive(sPointer) == BASSActive.BASS_ACTIVE_PLAYING : false;
         public double CurrentPosition
         {
-            get => sPointer != 0 ? Bass.BASS_ChannelGetPosition(sPointer) / (Bass.BASS_ChannelGetLength(sPointer) - 1d) : double.NaN;
+            get => (sPointer != 0) ? Bass.BASS_ChannelGetPosition(sPointer) / (Bass.BASS_ChannelGetLength(sPointer) - 1d) : double.NaN;
             set
             {
                 if (sPointer != 0)
                     Bass.BASS_ChannelSetPosition(sPointer, Math.Max(Convert.ToInt64(Bass.BASS_ChannelGetLength(sPointer) * ((value < 0) ? 0 : (value > 1) ? 1 : value)) - 1, 0));
             }
         }
-        public TimeSpan CurrentTime => sPointer != 0 ? new TimeSpan((long)(Bass.BASS_ChannelBytes2Seconds(sPointer, Bass.BASS_ChannelGetPosition(sPointer)) * Math.Pow(10, 7))) : TimeSpan.Zero;
-        public TimeSpan TrackLength => sPointer != 0 ? new TimeSpan((long)(Bass.BASS_ChannelBytes2Seconds(sPointer, Bass.BASS_ChannelGetLength(sPointer)) * Math.Pow(10, 7))) : TimeSpan.Zero;
+        public TimeSpan CurrentTime => (sPointer != 0) ? new TimeSpan((long)(Bass.BASS_ChannelBytes2Seconds(sPointer, Bass.BASS_ChannelGetPosition(sPointer)) * Math.Pow(10, 7))) : TimeSpan.Zero;
+        public TimeSpan TrackLength => (sPointer != 0) ? new TimeSpan((long)(Bass.BASS_ChannelBytes2Seconds(sPointer, Bass.BASS_ChannelGetLength(sPointer)) * Math.Pow(10, 7))) : TimeSpan.Zero;
 
         public SoundProcessing(IntPtr windowHandle)
         {

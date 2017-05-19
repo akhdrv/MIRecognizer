@@ -34,15 +34,16 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playPauseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.clearCacheToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.workspacePanel = new System.Windows.Forms.Panel();
+            this.fileNameLabel = new System.Windows.Forms.Label();
             this.trackLength = new System.Windows.Forms.Label();
             this.stopButton = new System.Windows.Forms.PictureBox();
             this.drumsInd = new System.Windows.Forms.Label();
@@ -87,8 +88,6 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.toolStripSeparator,
-            this.saveToolStripMenuItem,
-            this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
@@ -100,33 +99,19 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.openToolStripMenuItem.Text = "&Открыть";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(275, 6);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
-            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
-            this.saveToolStripMenuItem.Text = "&Сохранить данные обработки";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(275, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(161, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.exitToolStripMenuItem.Text = "&Выход";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -134,7 +119,9 @@
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.playPauseToolStripMenuItem,
-            this.stopToolStripMenuItem});
+            this.stopToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.clearCacheToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.toolsToolStripMenuItem.Text = "&Опции";
@@ -142,16 +129,28 @@
             // playPauseToolStripMenuItem
             // 
             this.playPauseToolStripMenuItem.Name = "playPauseToolStripMenuItem";
-            this.playPauseToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.playPauseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.playPauseToolStripMenuItem.Text = "&Играть/Пауза";
             this.playPauseToolStripMenuItem.Click += new System.EventHandler(this.playPauseToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.stopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.stopToolStripMenuItem.Text = "&Стоп";
             this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // clearCacheToolStripMenuItem
+            // 
+            this.clearCacheToolStripMenuItem.Name = "clearCacheToolStripMenuItem";
+            this.clearCacheToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearCacheToolStripMenuItem.Text = "Очистить кэш";
+            this.clearCacheToolStripMenuItem.Click += new System.EventHandler(this.clearCacheToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -166,11 +165,13 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.aboutToolStripMenuItem.Text = "&О программе...";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // workspacePanel
             // 
             this.workspacePanel.AllowDrop = true;
             this.workspacePanel.BackColor = System.Drawing.Color.White;
+            this.workspacePanel.Controls.Add(this.fileNameLabel);
             this.workspacePanel.Controls.Add(this.trackLength);
             this.workspacePanel.Controls.Add(this.stopButton);
             this.workspacePanel.Controls.Add(this.drumsInd);
@@ -194,6 +195,15 @@
             this.workspacePanel.Name = "workspacePanel";
             this.workspacePanel.Size = new System.Drawing.Size(484, 137);
             this.workspacePanel.TabIndex = 1;
+            // 
+            // fileNameLabel
+            // 
+            this.fileNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.fileNameLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fileNameLabel.Location = new System.Drawing.Point(104, 112);
+            this.fileNameLabel.Name = "fileNameLabel";
+            this.fileNameLabel.Size = new System.Drawing.Size(324, 20);
+            this.fileNameLabel.TabIndex = 18;
             // 
             // trackLength
             // 
@@ -329,6 +339,7 @@
             // celloInd
             // 
             this.celloInd.AutoSize = true;
+            this.celloInd.BackColor = System.Drawing.Color.White;
             this.celloInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.celloInd.Location = new System.Drawing.Point(12, 4);
             this.celloInd.Name = "celloInd";
@@ -349,7 +360,7 @@
             // slider
             // 
             this.slider.Enabled = false;
-            this.slider.Image = global::MIRecognizer.Properties.Resources.SliderSteady;
+            this.slider.Image = ((System.Drawing.Image)(resources.GetObject("slider.Image")));
             this.slider.Location = new System.Drawing.Point(473, 87);
             this.slider.Name = "slider";
             this.slider.Size = new System.Drawing.Size(5, 25);
@@ -359,7 +370,7 @@
             // timeline
             // 
             this.timeline.BackColor = System.Drawing.Color.Transparent;
-            this.timeline.Image = global::MIRecognizer.Properties.Resources.Timeline;
+            this.timeline.Image = ((System.Drawing.Image)(resources.GetObject("timeline.Image")));
             this.timeline.Location = new System.Drawing.Point(58, 87);
             this.timeline.Name = "timeline";
             this.timeline.Size = new System.Drawing.Size(420, 25);
@@ -372,7 +383,7 @@
             // 
             // playStopButton
             // 
-            this.playStopButton.Image = global::MIRecognizer.Properties.Resources.Play;
+            this.playStopButton.Image = ((System.Drawing.Image)(resources.GetObject("playStopButton.Image")));
             this.playStopButton.Location = new System.Drawing.Point(7, 87);
             this.playStopButton.Name = "playStopButton";
             this.playStopButton.Size = new System.Drawing.Size(20, 25);
@@ -393,6 +404,7 @@
             this.Controls.Add(this.workspacePanel);
             this.Controls.Add(this.mainMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
             this.MaximizeBox = false;
             this.Name = "PlayerWindow";
@@ -418,8 +430,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem playPauseToolStripMenuItem;
@@ -446,5 +456,8 @@
         private System.Windows.Forms.PictureBox stopButton;
         private System.Windows.Forms.Label trackLength;
         private System.Windows.Forms.Timer sliderTimer;
+        private System.Windows.Forms.Label fileNameLabel;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem clearCacheToolStripMenuItem;
     }
 }
