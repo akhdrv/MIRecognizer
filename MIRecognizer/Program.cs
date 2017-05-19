@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace MIRecognizer
 {
+    /// <summary>
+    /// Класс с точкой входа в программу.
+    /// </summary>
     static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {

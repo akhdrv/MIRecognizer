@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace MIRecognizer
 {
+    /// <summary>
+    /// Окно с бегущей полосой загрузки и сообщением
+    /// </summary>
     public partial class LoadingWindow : Form
     {
         public LoadingWindow(string loadingText)

@@ -6,8 +6,15 @@ using Wolfram.NETLink;
 
 namespace MIRecognizer
 {
+    /// <summary>
+    /// Класс, обеспечивающий работу с ядром системы Wolfram Mathematica, составляющий запрос на распознавание и обеспечивающий форматирование выходных данных.
+    /// Кэширует (сохраняет) данные о распознанных аудиофайлах.
+    /// </summary>
     class Recognizer : IDisposable
     {
+        /// <summary>
+        /// Ссылка на подключение к системе Mathematica
+        /// </summary>
         IKernelLink mathematicaLink;
 
         public Recognizer()
@@ -27,12 +34,24 @@ namespace MIRecognizer
             mathematicaLink.Evaluate($"net = Import[\"{netPath.Replace('\\', '/')}\"];");
             mathematicaLink.WaitAndDiscardAnswer();
         }
+
+        /// <summary>
+        /// Возвращает форматированные данные о распознанных инструментах композиции
+        /// </summary>
+        /// <param name="filePath">Путь к файлу</param>
+        /// <returns>Двумерный массив данных распознавания double[x, y], где x — номер секунды, в которой проходило распознавание, y — номер инструмента</returns>
         public double[,] GetInstrumentalInfo(string filePath)
         {
             if (Cached(filePath))
                 return ReleaseFromCache(filePath);
             return Recognize(filePath);
         }
+
+        /// <summary>
+        /// Отправляет запрос о распознавании в систему Mathematica и возвращает форматированные данные
+        /// </summary>
+        /// <param name="filePath">Путь к файлу</param>
+        /// <returns>Двумерный массив данных распознавания double[x, y], где x — номер секунды, в которой проходило распознавание, y — номер инструмента</returns>
         private double[,] Recognize(string filePath)
         {
             mathematicaLink.Evaluate(
@@ -51,6 +70,10 @@ AudioSplit[audio, Table[i, {{i, QuantityMagnitude[Duration[audio], ""Seconds""]}
             return probabilities;
         }
 
+        /// <summary>
+        /// Сигнализирует, есть ли кэшированные данные для файла
+        /// </summary>
+        /// <param name="filePath">Путь к файлу</param>
         private static bool Cached(string filePath)
         {
             if (File.Exists(CachedDataPath(filePath)))
@@ -58,6 +81,11 @@ AudioSplit[audio, Table[i, {{i, QuantityMagnitude[Duration[audio], ""Seconds""]}
             return false;
         }
 
+        /// <summary>
+        /// Кэширует данные распознавания
+        /// </summary>
+        /// <param name="filePath">Путь к файлу</param>
+        /// <param name="probabilities">Массив с распознанными данными</param>
         private static void Cache(string filePath, double[,] probabilities)
         {
             if (!Directory.Exists(Path.GetDirectoryName(CachedDataPath(filePath))))
@@ -68,6 +96,10 @@ AudioSplit[audio, Table[i, {{i, QuantityMagnitude[Duration[audio], ""Seconds""]}
                         probabilities);
         }
 
+        /// <summary>
+        /// Возвращает путь к файлу с кэшированными данными
+        /// </summary>
+        /// <param name="filePath">Путь к файлу</param>
         private static string CachedDataPath(string filePath)
         {
             using (var md5 = MD5.Create())
@@ -78,10 +110,19 @@ AudioSplit[audio, Table[i, {{i, QuantityMagnitude[Duration[audio], ""Seconds""]}
                             "-", String.Empty) + ".dat" : String.Empty);
         }
 
+        /// <summary>
+        /// Удаляет папку с кэшированными данными
+        /// </summary>
         public static void ClearCache()
         {
             Directory.Delete(CachedDataPath(String.Empty), true);
         }
+
+        /// <summary>
+        /// Извлекает данные из кэша для данного файла
+        /// </summary>
+        /// <param name="filePath">Путь к файлу</param>
+        /// <returns>Данные распознавания</returns>
         private static double[,] ReleaseFromCache(string filePath)
         {
             using (var stream = new FileStream(CachedDataPath(filePath), FileMode.Open))
