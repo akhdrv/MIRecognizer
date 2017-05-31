@@ -49,14 +49,12 @@
             this.drumsInd = new System.Windows.Forms.Label();
             this.voiceInd = new System.Windows.Forms.Label();
             this.violinInd = new System.Windows.Forms.Label();
-            this.trumpetInd = new System.Windows.Forms.Label();
             this.saxophoneInd = new System.Windows.Forms.Label();
             this.pianoInd = new System.Windows.Forms.Label();
             this.organInd = new System.Windows.Forms.Label();
             this.electricGuitarInd = new System.Windows.Forms.Label();
             this.acousticGuitarInd = new System.Windows.Forms.Label();
             this.fluteInd = new System.Windows.Forms.Label();
-            this.clarinetInd = new System.Windows.Forms.Label();
             this.celloInd = new System.Windows.Forms.Label();
             this.currentTime = new System.Windows.Forms.Label();
             this.slider = new System.Windows.Forms.PictureBox();
@@ -177,14 +175,12 @@
             this.workspacePanel.Controls.Add(this.drumsInd);
             this.workspacePanel.Controls.Add(this.voiceInd);
             this.workspacePanel.Controls.Add(this.violinInd);
-            this.workspacePanel.Controls.Add(this.trumpetInd);
             this.workspacePanel.Controls.Add(this.saxophoneInd);
             this.workspacePanel.Controls.Add(this.pianoInd);
             this.workspacePanel.Controls.Add(this.organInd);
             this.workspacePanel.Controls.Add(this.electricGuitarInd);
             this.workspacePanel.Controls.Add(this.acousticGuitarInd);
             this.workspacePanel.Controls.Add(this.fluteInd);
-            this.workspacePanel.Controls.Add(this.clarinetInd);
             this.workspacePanel.Controls.Add(this.celloInd);
             this.workspacePanel.Controls.Add(this.currentTime);
             this.workspacePanel.Controls.Add(this.slider);
@@ -230,7 +226,7 @@
             // 
             this.drumsInd.AutoSize = true;
             this.drumsInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.drumsInd.Location = new System.Drawing.Point(204, 46);
+            this.drumsInd.Location = new System.Drawing.Point(115, 4);
             this.drumsInd.Name = "drumsInd";
             this.drumsInd.Size = new System.Drawing.Size(76, 21);
             this.drumsInd.TabIndex = 15;
@@ -240,7 +236,7 @@
             // 
             this.voiceInd.AutoSize = true;
             this.voiceInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.voiceInd.Location = new System.Drawing.Point(420, 25);
+            this.voiceInd.Location = new System.Drawing.Point(294, 34);
             this.voiceInd.Name = "voiceInd";
             this.voiceInd.Size = new System.Drawing.Size(55, 21);
             this.voiceInd.TabIndex = 14;
@@ -250,27 +246,17 @@
             // 
             this.violinInd.AutoSize = true;
             this.violinInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.violinInd.Location = new System.Drawing.Point(339, 25);
+            this.violinInd.Location = new System.Drawing.Point(355, 34);
             this.violinInd.Name = "violinInd";
             this.violinInd.Size = new System.Drawing.Size(75, 21);
             this.violinInd.TabIndex = 13;
             this.violinInd.Text = "Скрипка";
             // 
-            // trumpetInd
-            // 
-            this.trumpetInd.AutoSize = true;
-            this.trumpetInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.trumpetInd.Location = new System.Drawing.Point(277, 25);
-            this.trumpetInd.Name = "trumpetInd";
-            this.trumpetInd.Size = new System.Drawing.Size(56, 21);
-            this.trumpetInd.TabIndex = 12;
-            this.trumpetInd.Text = "Труба";
-            // 
             // saxophoneInd
             // 
             this.saxophoneInd.AutoSize = true;
             this.saxophoneInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saxophoneInd.Location = new System.Drawing.Point(185, 25);
+            this.saxophoneInd.Location = new System.Drawing.Point(202, 34);
             this.saxophoneInd.Name = "saxophoneInd";
             this.saxophoneInd.Size = new System.Drawing.Size(86, 21);
             this.saxophoneInd.TabIndex = 11;
@@ -280,7 +266,7 @@
             // 
             this.pianoInd.AutoSize = true;
             this.pianoInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.pianoInd.Location = new System.Drawing.Point(75, 25);
+            this.pianoInd.Location = new System.Drawing.Point(92, 34);
             this.pianoInd.Name = "pianoInd";
             this.pianoInd.Size = new System.Drawing.Size(104, 21);
             this.pianoInd.TabIndex = 10;
@@ -290,7 +276,7 @@
             // 
             this.organInd.AutoSize = true;
             this.organInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.organInd.Location = new System.Drawing.Point(12, 25);
+            this.organInd.Location = new System.Drawing.Point(29, 34);
             this.organInd.Name = "organInd";
             this.organInd.Size = new System.Drawing.Size(57, 21);
             this.organInd.TabIndex = 9;
@@ -325,16 +311,6 @@
             this.fluteInd.Size = new System.Drawing.Size(65, 21);
             this.fluteInd.TabIndex = 6;
             this.fluteInd.Text = "Флейта";
-            // 
-            // clarinetInd
-            // 
-            this.clarinetInd.AutoSize = true;
-            this.clarinetInd.Font = new System.Drawing.Font("Microsoft YaHei Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.clarinetInd.Location = new System.Drawing.Point(120, 4);
-            this.clarinetInd.Name = "clarinetInd";
-            this.clarinetInd.Size = new System.Drawing.Size(71, 21);
-            this.clarinetInd.TabIndex = 5;
-            this.clarinetInd.Text = "Кларнет";
             // 
             // celloInd
             // 
@@ -443,14 +419,12 @@
         private System.Windows.Forms.Label currentTime;
         private System.Windows.Forms.Label voiceInd;
         private System.Windows.Forms.Label violinInd;
-        private System.Windows.Forms.Label trumpetInd;
         private System.Windows.Forms.Label saxophoneInd;
         private System.Windows.Forms.Label pianoInd;
         private System.Windows.Forms.Label organInd;
         private System.Windows.Forms.Label electricGuitarInd;
         private System.Windows.Forms.Label acousticGuitarInd;
         private System.Windows.Forms.Label fluteInd;
-        private System.Windows.Forms.Label clarinetInd;
         private System.Windows.Forms.Label celloInd;
         private System.Windows.Forms.Label drumsInd;
         private System.Windows.Forms.PictureBox stopButton;

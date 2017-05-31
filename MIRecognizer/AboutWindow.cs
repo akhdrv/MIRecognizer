@@ -100,6 +100,14 @@ namespace MIRecognizer
         }
         #endregion
 
+        public LoadingWindow LoadingWindow
+        {
+            get => default(LoadingWindow);
+            set
+            {
+            }
+        }
+
         private void okButton_Click(object sender, EventArgs e)
         {
             this.Close();

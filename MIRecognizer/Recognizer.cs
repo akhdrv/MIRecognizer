@@ -54,11 +54,11 @@ namespace MIRecognizer
         /// <returns>Двумерный массив данных распознавания double[x, y], где x — номер секунды, в которой проходило распознавание, y — номер инструмента</returns>
         private double[,] Recognize(string filePath)
         {
-            mathematicaLink.Evaluate(
-                $@"audio = AudioNormalize[Import[""{filePath.Replace('\\', '/')}""]];
-net[ImageTrim[Spectrogram[#, Frame -> None, ImageSize -> 254, AspectRatio -> 2,
-ColorFunction -> GrayLevel, SampleRate -> 44800], {{ {{0, 0}}, {{254, 254}} }}]] & /@
-AudioSplit[audio, Table[i, {{i, QuantityMagnitude[Duration[audio], ""Seconds""]}}]]");
+            mathematicaLink.Evaluate($@"
+audio = AudioNormalize[Import[""{filePath.Replace('\\', '/')}""]];
+net[Sharpen[Spectrogram[#, Frame -> None, ImageSize -> {{768, 512}}, AspectRatio -> Full, 
+  ColorFunction -> GrayLevel, SampleRate -> 44800]]] & /@
+AudioSplit[audio, Table[i, {{i, 0, QuantityMagnitude[Duration[audio], ""Seconds""], 3}}]]");
             mathematicaLink.WaitForAnswer();
 
 
@@ -115,7 +115,8 @@ AudioSplit[audio, Table[i, {{i, QuantityMagnitude[Duration[audio], ""Seconds""]}
         /// </summary>
         public static void ClearCache()
         {
-            Directory.Delete(CachedDataPath(String.Empty), true);
+            if (Directory.Exists(CachedDataPath(String.Empty)))
+                Directory.Delete(CachedDataPath(String.Empty), true);
         }
 
         /// <summary>
@@ -132,7 +133,6 @@ AudioSplit[audio, Table[i, {{i, QuantityMagnitude[Duration[audio], ""Seconds""]}
         public void Dispose()
         {
             mathematicaLink?.Close();
-            mathematicaLink = null;
         }
     }
 }

@@ -285,22 +285,22 @@ namespace MIRecognizer
             if((int)sound.CurrentTime.TotalSeconds != (int)timerFlag.TotalSeconds)
             {
                 timerFlag = sound.CurrentTime;
-                var cs = (int)sound.CurrentTime.TotalSeconds;
+                var cs = (int)sound.CurrentTime.TotalSeconds/3;
                 if (cs >= instrumentalInfo.GetLength(0))
                     cs = instrumentalInfo.GetLength(0) - 1;
 
                 celloInd.BackColor = ColorFunction(instrumentalInfo[cs, 0]);
-                clarinetInd.BackColor = ColorFunction(instrumentalInfo[cs, 1]);
-                fluteInd.BackColor = ColorFunction(instrumentalInfo[cs, 2]);
-                acousticGuitarInd.BackColor = ColorFunction(instrumentalInfo[cs, 3]);
-                electricGuitarInd.BackColor = ColorFunction(instrumentalInfo[cs, 4]);
-                organInd.BackColor = ColorFunction(instrumentalInfo[cs, 5]);
-                pianoInd.BackColor = ColorFunction(instrumentalInfo[cs, 6]);
-                saxophoneInd.BackColor = ColorFunction(instrumentalInfo[cs, 7]);
-                trumpetInd.BackColor = ColorFunction(instrumentalInfo[cs, 8]);
-                violinInd.BackColor = ColorFunction(instrumentalInfo[cs, 9]);
-                voiceInd.BackColor = ColorFunction(instrumentalInfo[cs, 10]);
-                drumsInd.BackColor = ColorFunction(instrumentalInfo[cs, 11]);
+                //clarinetInd.BackColor = ColorFunction(instrumentalInfo[cs, 1]);
+                fluteInd.BackColor = ColorFunction(instrumentalInfo[cs, 1]);
+                acousticGuitarInd.BackColor = ColorFunction(instrumentalInfo[cs, 2]);
+                electricGuitarInd.BackColor = ColorFunction(instrumentalInfo[cs, 3]);
+                organInd.BackColor = ColorFunction(instrumentalInfo[cs, 4]);
+                pianoInd.BackColor = ColorFunction(instrumentalInfo[cs, 5]);
+                saxophoneInd.BackColor = ColorFunction(instrumentalInfo[cs, 6]);
+                //trumpetInd.BackColor = ColorFunction(instrumentalInfo[cs, 8]);
+                violinInd.BackColor = ColorFunction(instrumentalInfo[cs, 7]);
+                voiceInd.BackColor = ColorFunction(instrumentalInfo[cs, 8]);
+                drumsInd.BackColor = ColorFunction(instrumentalInfo[cs, 9]);
             }
 
             if (sound.CurrentTime.TotalMilliseconds != sound.TrackLength.TotalMilliseconds)

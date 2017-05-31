@@ -82,6 +82,7 @@
     <Compile Include="LoadingWindow.Designer.cs">
       <DependentUpon>LoadingWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayerPresenter.cs" />
     <Compile Include="PlayerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
