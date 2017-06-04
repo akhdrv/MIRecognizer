@@ -27,7 +27,7 @@ namespace MIRecognizer
             set
             {
                 if (sPointer != 0)
-                    Bass.BASS_ChannelSetPosition(sPointer, Math.Max(Convert.ToInt64(Bass.BASS_ChannelGetLength(sPointer) * ((value < 0) ? 0 : (value > 1) ? 1 : value)) - 1, 0));
+                    Bass.BASS_ChannelSetPosition(sPointer, Math.Max(Convert.ToInt64(Bass.BASS_ChannelGetLength(sPointer) * ((value < 0) ? 0d : (value > 1) ? 1d : value)) - 1, 0));
             }
         }
 
@@ -40,7 +40,6 @@ namespace MIRecognizer
         /// Возвращает длину звуковой дорожки
         /// </summary>
         public TimeSpan TrackLength => (sPointer != 0) ? new TimeSpan((long)(Bass.BASS_ChannelBytes2Seconds(sPointer, Bass.BASS_ChannelGetLength(sPointer)) * Math.Pow(10, 7))) : TimeSpan.Zero;
-
 
         public SoundProcessing(IntPtr windowHandle)
         {

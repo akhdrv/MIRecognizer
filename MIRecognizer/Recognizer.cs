@@ -8,23 +8,20 @@ namespace MIRecognizer
 {
     /// <summary>
     /// Класс, обеспечивающий работу с ядром системы Wolfram Mathematica, составляющий запрос на распознавание и обеспечивающий форматирование выходных данных.
-    /// Кэширует (сохраняет) данные о распознанных аудиофайлах.
+    /// Кэширует данные о распознанных аудиофайлах.
     /// </summary>
     class Recognizer : IDisposable
     {
-        /// <summary>
-        /// Ссылка на подключение к системе Mathematica
-        /// </summary>
-        IKernelLink mathematicaLink;
+        private IKernelLink mathematicaLink;
 
-        public Recognizer()
+        public void Initialize()
         {
             mathematicaLink = MathLinkFactory.
                 CreateKernelLink();
             mathematicaLink.WaitAndDiscardAnswer();
 
             var netPath = Path.Combine(
-                Path.GetTempPath(), "InstrumentRecognizer",
+                TemporaryPath, "InstrumentRecognizer",
                 "net.wlnet");
             if (!File.Exists(netPath))
             {
@@ -61,11 +58,13 @@ net[Sharpen[Spectrogram[#, Frame -> None, ImageSize -> {{768, 512}}, AspectRatio
 AudioSplit[audio, Table[i, {{i, 0, QuantityMagnitude[Duration[audio], ""Seconds""], 3}}]]");
             mathematicaLink.WaitForAnswer();
 
-
             var probabilities = (double[,])mathematicaLink
                 .GetArray(typeof(double), 2);
 
             Cache(filePath, probabilities);
+
+            mathematicaLink.Evaluate(@"Clear[%,audio];");
+            mathematicaLink.WaitAndDiscardAnswer();
 
             return probabilities;
         }
@@ -103,12 +102,14 @@ AudioSplit[audio, Table[i, {{i, 0, QuantityMagnitude[Duration[audio], ""Seconds"
         private static string CachedDataPath(string filePath)
         {
             using (var md5 = MD5.Create())
-                return Path.Combine(Path.GetTempPath(),
+                return Path.Combine(TemporaryPath,
                     "InstrumentRecognizer", "CachedData", (filePath != String.Empty) ?
                         BitConverter.ToString(md5.ComputeHash(
                             File.ReadAllBytes(filePath))).Replace(
                             "-", String.Empty) + ".dat" : String.Empty);
         }
+
+        private static string TemporaryPath { get; } = Environment.ExpandEnvironmentVariables(@"%SystemRoot%\Temp");
 
         /// <summary>
         /// Удаляет папку с кэшированными данными

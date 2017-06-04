@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace MIRecognizer
 {
@@ -10,7 +11,7 @@ namespace MIRecognizer
         public LoadingWindow(string loadingText)
         {
             InitializeComponent();
-            this.label1.Text = loadingText;
+            label1.Text = loadingText;
         }
     }
 }

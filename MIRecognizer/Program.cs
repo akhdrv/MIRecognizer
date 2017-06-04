@@ -6,9 +6,6 @@ using System.Windows.Forms;
 
 namespace MIRecognizer
 {
-    /// <summary>
-    /// Класс с точкой входа в программу.
-    /// </summary>
     static class Program
     {
         [STAThread]
@@ -16,7 +13,7 @@ namespace MIRecognizer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PlayerWindow());
+            Application.Run(new View());
         }
     }
 }

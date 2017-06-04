@@ -1,7 +1,33 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MIRecognizer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Error" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Error</Value>
+    </Setting>
+    <Setting Name="MathLinkInitFail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Wolfram Mathematica is not installed, or the path to MathKernel.exe could not be found. The program will be closed.</Value>
+    </Setting>
+    <Setting Name="MathLoading" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Loading Wolfram Mathematica</Value>
+    </Setting>
+    <Setting Name="UnsupportedFile" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Unsupported file format.</Value>
+    </Setting>
+    <Setting Name="MathLinkCorrupted" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">The connection to MathKernel.exe is corrupted, or the version of Wolfram Mathematica is lower than 11. The program will be closed.</Value>
+    </Setting>
+    <Setting Name="RecognitionProcessing" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Processing Recognition</Value>
+    </Setting>
+    <Setting Name="CacheRemoval" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Cache removal</Value>
+    </Setting>
+    <Setting Name="CacheRemovalProceed" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">All temporary files associated with recent computational data are going to be removed. Proceed?</Value>
+    </Setting>
+    <Setting Name="FileFilter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Аудиофайлы (*.mp3, *.ogg, *.wav, *.aif, *.aiff)|*.mp3;*.ogg;*.wav;*.aif;*.aiff;</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

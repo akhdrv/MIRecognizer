@@ -8,22 +8,102 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MIRecognizer.Properties
-{
-
-
+namespace MIRecognizer.Properties {
+    
+    
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
-    {
-
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-
-        public static Settings Default
-        {
-            get
-            {
+        
+        public static Settings Default {
+            get {
                 return defaultInstance;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Error")]
+        public string Error {
+            get {
+                return ((string)(this["Error"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Wolfram Mathematica is not installed, or the path to MathKernel.exe could not be " +
+            "found. The program will be closed.")]
+        public string MathLinkInitFail {
+            get {
+                return ((string)(this["MathLinkInitFail"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Loading Wolfram Mathematica")]
+        public string MathLoading {
+            get {
+                return ((string)(this["MathLoading"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Unsupported file format.")]
+        public string UnsupportedFile {
+            get {
+                return ((string)(this["UnsupportedFile"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("The connection to MathKernel.exe is corrupted, or the version of Wolfram Mathemat" +
+            "ica is lower than 11. The program will be closed.")]
+        public string MathLinkCorrupted {
+            get {
+                return ((string)(this["MathLinkCorrupted"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Processing Recognition")]
+        public string RecognitionProcessing {
+            get {
+                return ((string)(this["RecognitionProcessing"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Cache removal")]
+        public string CacheRemoval {
+            get {
+                return ((string)(this["CacheRemoval"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("All temporary files associated with recent computational data are going to be rem" +
+            "oved. Proceed?")]
+        public string CacheRemovalProceed {
+            get {
+                return ((string)(this["CacheRemovalProceed"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Аудиофайлы (*.mp3, *.ogg, *.wav, *.aif, *.aiff)|*.mp3;*.ogg;*.wav;*.aif;*.aiff;")]
+        public string FileFilter {
+            get {
+                return ((string)(this["FileFilter"]));
             }
         }
     }
