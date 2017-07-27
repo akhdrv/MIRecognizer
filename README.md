@@ -1,5 +1,5 @@
 # MIRecognizer
-_A program for recognizing musical instruments._
+_A program for musical instruments recognition._
 
 **Requires Wolfram Mathematica 11.1!**
 
